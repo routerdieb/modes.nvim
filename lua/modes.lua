@@ -287,19 +287,19 @@ M.setup = function(opts)
 	)
 
 	---Enable managed UI initially
-	--M.enable_managed_ui()
+	M.enable_managed_ui()
 
 	---Enable managed UI for current window
-	vim.api.nvim_create_autocmd('WinEnter', {
-		pattern = '*',
-		callback = M.enable_managed_ui,
-	})
+	--vim.api.nvim_create_autocmd('WinEnter', {
+	--	pattern = '*',
+	--	callback = M.enable_managed_ui,
+	--})
 
 	---Disable managed UI for unfocused windows
-	vim.api.nvim_create_autocmd('WinLeave', {
-		pattern = '*',
-		callback = M.disable_managed_ui,
-	})
+	--vim.api.nvim_create_autocmd('WinLeave', {
+	--	pattern = '*',
+	--	callback = M.disable_managed_ui,
+	--})
 end
 
 return M
