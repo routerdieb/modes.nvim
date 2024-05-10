@@ -118,8 +118,8 @@ M.highlight = function(scene)
 			utils.set_hl('ModesOperator', { link = 'ModesDelete' })
 		elseif scene == 'copy' then
 			utils.set_hl('ModesOperator', { link = 'ModesCopy' })
-		if scene == 'default' then
-			utils.set_hl('ModesOperator', { link = 'ModesNormal'})
+		elseif scene == 'default' then
+			utils.set_hl('ModesOperator', { link = 'ModesNormal' })
 		end
 	end
 end
@@ -127,7 +127,7 @@ end
 M.define = function()
 	local normal_bg = utils.get_bg('Normal', 'Normal')
 	colors = {
-		normal = "#FFFFFF",
+		normal = '#FFFFFF',
 		copy = config.colors.copy or utils.get_bg('ModesCopy', '#f5c359'),
 		delete = config.colors.delete or utils.get_bg('ModesDelete', '#c75c6a'),
 		insert = config.colors.insert or utils.get_bg('ModesInsert', '#78ccc5'),
@@ -251,8 +251,7 @@ M.setup = function(opts)
 				return
 			end
 		end
-	end
-	)
+	end)
 
 	---Set highlights when colorscheme changes
 	vim.api.nvim_create_autocmd('ColorScheme', {
