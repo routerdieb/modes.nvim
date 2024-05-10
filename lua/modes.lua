@@ -267,6 +267,14 @@ M.setup = function(opts)
 		end,
 	})
 
+	---Set insert highlight
+	vim.api.nvim_create_autocmd('InsertLeave', {
+		pattern = '*',
+		callback = function()
+			M.reset()
+		end,
+	})
+
 	---Set visual highlight
 	vim.api.nvim_create_autocmd('ModeChanged', {
 		pattern = '*:[vV\x16]',
