@@ -22,7 +22,7 @@ local default_config = {
 		'man',
 		'TelescopePrompt',
 		'TelescopeResults',
-	}
+	},
 }
 local winhighlight = {
 	default = {
@@ -201,7 +201,7 @@ M.disable_managed_ui = function()
 end
 
 M.setup = function(opts)
-	opts = vim.tbl_extend("keep", opts or {}, default_config)
+	opts = vim.tbl_extend('keep', opts or {}, default_config)
 	if opts.focus_only then
 		print(
 			'modes.nvim – `focus_only` has been removed and is now the default behaviour'
@@ -287,7 +287,7 @@ M.setup = function(opts)
 	)
 
 	---Enable managed UI initially
-	M.enable_managed_ui()
+	--M.enable_managed_ui()
 
 	---Enable managed UI for current window
 	vim.api.nvim_create_autocmd('WinEnter', {
