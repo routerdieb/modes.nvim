@@ -269,6 +269,7 @@ M.setup = function(opts)
 
 	---Set insert highlight
 	vim.api.nvim_create_autocmd('InsertLeave', {
+		pattern = '*',
 		callback = function()
 			M.highlight('default')
 		end,
@@ -285,7 +286,9 @@ M.setup = function(opts)
 	---Reset visual highlight
 	vim.api.nvim_create_autocmd('ModeChanged', {
 		pattern = '[vV\x16]:n',
-		callback = M.reset,
+		callback = function()
+			M.reset()
+		end,
 	})
 
 	---Reset highlights
