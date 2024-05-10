@@ -119,7 +119,7 @@ M.highlight = function(scene)
 		elseif scene == 'copy' then
 			utils.set_hl('ModesOperator', { link = 'ModesCopy' })
 		if scene == 'default' then
-			utils.set_hl('ModesOperator', { link = 'ModesNormal})
+			utils.set_hl('ModesOperator', { link = 'ModesNormal'})
 		end
 	end
 end
