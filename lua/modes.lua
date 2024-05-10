@@ -167,8 +167,8 @@ M.define = function()
 		utils.set_hl(('Modes%sCursorLineFold'):format(mode), def)
 	end
 
-	utils.set_hl('ModesInsertModeMsg', { fg = colors.insert })
-	utils.set_hl('ModesVisualModeMsg', { fg = colors.visual })
+	--utils.set_hl('ModesInsertModeMsg', { fg = colors.insert })
+	--utils.set_hl('ModesVisualModeMsg', { fg = colors.visual })
 	utils.set_hl('ModesVisualVisual', { bg = blended_colors.visual })
 end
 
