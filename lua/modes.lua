@@ -270,7 +270,7 @@ M.setup = function(opts)
 	---Set insert highlight
 	vim.api.nvim_create_autocmd('InsertLeave', {
 		callback = function()
-			M.reset()
+			M.highlight('default')
 		end,
 	})
 
