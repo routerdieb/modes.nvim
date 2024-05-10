@@ -250,6 +250,14 @@ M.setup = function(opts)
 				operator_started = true
 				return
 			end
+
+			if key == 'v' then
+				operator_started = true
+			end
+
+			if key == 'i' then
+				operator_started = true
+			end
 		end
 	end)
 
