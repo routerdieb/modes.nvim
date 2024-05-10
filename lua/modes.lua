@@ -118,6 +118,8 @@ M.highlight = function(scene)
 			utils.set_hl('ModesOperator', { link = 'ModesDelete' })
 		elseif scene == 'copy' then
 			utils.set_hl('ModesOperator', { link = 'ModesCopy' })
+		if scene == 'default' then
+			utils.set_hl('ModesOperator', { link = 'ModesNormal})
 		end
 	end
 end
@@ -125,6 +127,7 @@ end
 M.define = function()
 	local normal_bg = utils.get_bg('Normal', 'Normal')
 	colors = {
+		normal = "#FFFFFF",
 		copy = config.colors.copy or utils.get_bg('ModesCopy', '#f5c359'),
 		delete = config.colors.delete or utils.get_bg('ModesDelete', '#c75c6a'),
 		insert = config.colors.insert or utils.get_bg('ModesInsert', '#78ccc5'),
@@ -154,6 +157,7 @@ M.define = function()
 	vim.cmd('hi ModesDelete guibg=' .. colors.delete)
 	vim.cmd('hi ModesInsert guibg=' .. colors.insert)
 	vim.cmd('hi ModesVisual guibg=' .. colors.visual)
+	vim.cmd('hi ModesNormal guibg=' .. colors.normal)
 
 	for _, mode in ipairs({ 'Copy', 'Delete', 'Insert', 'Visual' }) do
 		local def = { bg = blended_colors[mode:lower()] }
@@ -247,7 +251,8 @@ M.setup = function(opts)
 				return
 			end
 		end
-	end)
+	end
+	)
 
 	---Set highlights when colorscheme changes
 	vim.api.nvim_create_autocmd('ColorScheme', {
@@ -290,16 +295,16 @@ M.setup = function(opts)
 	M.enable_managed_ui()
 
 	---Enable managed UI for current window
-	--vim.api.nvim_create_autocmd('WinEnter', {
-	--	pattern = '*',
-	--	callback = M.enable_managed_ui,
-	--})
+	vim.api.nvim_create_autocmd('WinEnter', {
+		pattern = '*',
+		callback = M.enable_managed_ui,
+	})
 
 	---Disable managed UI for unfocused windows
-	--vim.api.nvim_create_autocmd('WinLeave', {
-	--	pattern = '*',
-	--	callback = M.disable_managed_ui,
-	--})
+	vim.api.nvim_create_autocmd('WinLeave', {
+		pattern = '*',
+		callback = M.disable_managed_ui,
+	})
 end
 
 return M
