@@ -269,7 +269,6 @@ M.setup = function(opts)
 
 	---Set insert highlight
 	vim.api.nvim_create_autocmd('InsertLeave', {
-		pattern = '*',
 		callback = function()
 			M.reset()
 		end,
@@ -293,7 +292,6 @@ M.setup = function(opts)
 	vim.api.nvim_create_autocmd(
 		{ 'CmdlineLeave', 'InsertLeave', 'TextYankPost', 'WinLeave' },
 		{
-			pattern = '*',
 			callback = M.reset,
 		}
 	)
